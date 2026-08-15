@@ -94,6 +94,8 @@ func parse_message(json: Dictionary) -> void:
 			slot_id = json["slot"]
 			players = json["players"]
 			checked_locations = json["checked_locations"]
+			if json["missing_locations"] == []:
+				send_message({"cmd": "StatusUpdate", "status": 30})
 			slot_data = json["slot_data"]
 			Global.log_comment("Connected!")
 			AudioManager.play_global_sfx("coin")

@@ -244,7 +244,7 @@ func load_sfx_map(json := {}) -> void:
 func handle_music() -> void:
 	if Global.in_title_screen:
 		current_level_theme = ""
-	
+
 	# guzlad: hack in the elif because it doesn't unpause itself like the normal music_player does
 	if Global.game_paused and Settings.file.audio.pause_bgm == 0:
 		AudioManager.music_player.stream_paused = true
@@ -252,9 +252,9 @@ func handle_music() -> void:
 		return
 	elif AudioManager.music_override_player.stream_paused == true:
 		AudioManager.music_override_player.stream_paused = false
-	
+
 	AudioServer.set_bus_effect_enabled(1, 0, Global.game_paused and Settings.file.audio.pause_bgm == 1)
-	
+
 	if is_instance_valid(Global.current_level):
 		if Global.current_level.music == null or current_music_override != MUSIC_OVERRIDES.NONE:
 			music_player.stop()
@@ -335,10 +335,10 @@ func generate_interactive_stream(bgm_file := {}) -> AudioStreamInteractive:
 	var stream = MUSIC_BASE.duplicate()
 	var normal_path := ""
 	var normal_loop := -1.0
-	
+
 	var hurry_path := ""
 	var hurry_loop := -1.0
-	
+
 	# Default stuff, in case you just want a simple loop.
 	if (bgm_file.has("source")):
 		normal_path = ResourceSetter.get_pure_resource_path("res://Assets/Audio/BGM/" + bgm_file["source"])
@@ -346,7 +346,7 @@ func generate_interactive_stream(bgm_file := {}) -> AudioStreamInteractive:
 	if (bgm_file.has("loop")):
 		normal_loop = bgm_file["loop"]
 		hurry_loop = bgm_file["loop"]
-	
+
 	if (bgm_file.has("Normal")):
 		if (bgm_file["Normal"].has("source")):
 			normal_path = ResourceSetter.get_pure_resource_path("res://Assets/Audio/BGM/" + bgm_file["Normal"]["source"])
@@ -386,7 +386,7 @@ func import_stream(file_path := "", loop_point := -1.0) -> AudioStream:
 		stream = AudioStreamWAV.load_from_file(file_path)
 	elif file_path.ends_with(".json"):
 		stream = create_stream_from_json(file_path)
-	
+
 	# Looping
 	if file_path.ends_with(".mp3"):
 		stream.set_loop(loop_point >= 0)
@@ -397,4 +397,3 @@ func import_stream(file_path := "", loop_point := -1.0) -> AudioStream:
 	elif file_path.ends_with(".wav"):
 		stream.loop_begin = loop_point
 	return stream
-	
