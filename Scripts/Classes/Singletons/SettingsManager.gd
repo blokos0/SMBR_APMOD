@@ -9,7 +9,7 @@ var file := {
 		"drop_shadows": 1,
 		"scaling": 0,
 		"visuals": 0,
-		"hud_size": 0, 
+		"hud_size": 0,
 		"frame_limit" : 0,
 		"window_size": [1024, 960]
 	},
@@ -30,11 +30,11 @@ var file := {
 	},
 	"editor": {
 		"seen_guide": false,
-		
+
 		"show_trail": false,
 		"show_grid": true,
 		"show_gizmos": true,
-		
+
 		"autosave_enabled": true,
 		"autosave_min_timer": 5,
 		"autosave_before_test": false
