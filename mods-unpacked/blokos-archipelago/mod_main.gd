@@ -19,6 +19,8 @@ func install_script_extensions() -> void:
 	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/UI/LevelSelect.gd"))
 	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Classes/Singletons/SaveManager.gd"))
 	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Parts/EndFlagpole.gd"))
+	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Parts/CastleBridge.gd"))
+	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Parts/GameOver.gd"))
 
 func install_script_hook_files() -> void:
 	var hooks_dir_path: String = mod_dir_path.path_join("hooks")

@@ -39,12 +39,12 @@ func _ready() -> void:
 		world_num = " "
 	if Global.world_num >= 10:
 		world_num = LETTER_WORLDS[Global.world_num % 10]
-	
+
 	var lvl_idx := SaveManager.get_level_idx(Global.world_num, Global.level_num)
 	SaveManager.visited_levels[lvl_idx] = "1"
-	
+
 	%PlayerSprite.play("LevelTransition")
-	
+
 	if Global.current_game_mode == Global.GameMode.CAMPAIGN:
 		SaveManager.write_save(Global.current_campaign)
 	DiscordManager.set_discord_status("Playing " + Global.current_campaign + ": " + str(world_num) + "-" + str(Global.level_num))
@@ -89,7 +89,7 @@ func begin_transition_wait() -> void:
 				var level_file_name = Global.custom_campaign_jsons[Global.current_custom_campaign].levels[Global.custom_level_idx]
 				var path = Global.config_path.path_join("level_packs").path_join(Global.current_custom_campaign).path_join(level_file_name)
 				Level.first_load = true
-				
+
 				NewLevelBuilder.load_level(JSONParser.parse_to_dict(path))
 		else:
 			$Timer.start()

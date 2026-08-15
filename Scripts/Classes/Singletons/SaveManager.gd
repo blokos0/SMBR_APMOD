@@ -107,11 +107,11 @@ func write_save(campaign: String = Global.current_campaign, force := false) -> v
 	if Global.current_game_mode == Global.GameMode.DISCO:
 		save_json["Ranks"] = DiscoLevel.level_ranks
 		save_json["LevelsVisited"] = visited_levels
-	
+
 	JSONParser.save_to_file(save_json, path)
 
 func apply_save(json := {}) -> void:
-	
+
 	Global.world_num = json.get_or_add("World", 1)
 	if Global.world_num < 1:
 		Global.world_num = 1
@@ -120,7 +120,7 @@ func apply_save(json := {}) -> void:
 	Global.lives = json["Lives"]
 	Global.coins = json["Coins"]
 	Global.score = json["Score"]
-	
+
 	ChallengeModeHandler.red_coins_collected = json["RedCoins"]
 	ChallengeModeHandler.top_challenge_scores = json["ChallengeScores"]
 	BooRaceHandler.cleared_boo_levels = json["ClearedBooLevels"]

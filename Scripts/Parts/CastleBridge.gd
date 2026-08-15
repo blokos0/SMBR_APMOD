@@ -32,7 +32,7 @@ func destroy_bridge(player: Player) -> void:
 			i.queue_free()
 	if (end_timer and Global.current_game_mode == Global.GameMode.MARATHON) or Global.current_game_mode == Global.GameMode.MARATHON_PRACTICE:
 		SpeedrunHandler.run_finished()
-	
+
 	if end_timer:
 		if Global.world_num > 8:
 			Global.unlock_achievement(Global.AchievementID.SMBLL_WORLD9)
@@ -41,7 +41,7 @@ func destroy_bridge(player: Player) -> void:
 			"SMBLL": Global.unlock_achievement(Global.AchievementID.SMBLL_CLEAR)
 			"SMBS": Global.unlock_achievement(Global.AchievementID.SMBS_CLEAR)
 			"SMBANN": Global.unlock_achievement(Global.AchievementID.SMBANN_CLEAR)
-	
+
 	bowser_present = get_tree().get_first_node_in_group("Bowser") != null
 	player.velocity = Vector2.ZERO
 	Global.can_time_tick = false

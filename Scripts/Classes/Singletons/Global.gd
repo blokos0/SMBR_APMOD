@@ -218,7 +218,7 @@ var unpressed_buttons: Dictionary[StringName, bool] = {}
 
 
 func _ready() -> void:
-	if is_snapshot: 
+	if is_snapshot:
 		get_build_time()
 		current_snapshot = get_snapshot_version()
 	current_version = get_version_number()
@@ -255,14 +255,14 @@ func setup_config_dirs() -> void:
 		var full_path = config_path.path_join(d)
 		if not DirAccess.dir_exists_absolute(full_path):
 			DirAccess.make_dir_recursive_absolute(full_path)
-			
+
 	ModsTransfer.move_mods_to_new_path(ModsTransfer.find_mods_in_old_path())
 
 func get_config_path() -> String:
 	var exe_path := OS.get_executable_path()
 	var exe_dir  := exe_path.get_base_dir()
 	var portable_flag := exe_dir.path_join("portable.txt")
-	
+
 	# Test that exe dir is writeable, if not fallback to user://
 	if FileAccess.file_exists(portable_flag):
 		var test_file = exe_dir.path_join("test.txt")
@@ -285,7 +285,7 @@ func check_for_rom() -> void:
 	rom_assets_exist = false
 	if FileAccess.file_exists(ROM_PATH) == false:
 		return
-	var path = ROM_PATH 
+	var path = ROM_PATH
 	if FileAccess.file_exists(path):
 		if ROMVerifier.is_valid_rom(path):
 			rom_path = path
@@ -293,7 +293,7 @@ func check_for_rom() -> void:
 		var pack_json: String = FileAccess.get_file_as_string(ROM_ASSETS_PATH + "/pack_info.json")
 		var pack_dict: Dictionary = JSON.parse_string(pack_json)
 		if pack_dict.get("version", -1) >= ROM_ASSETS_VERSION:
-			rom_assets_exist = true 
+			rom_assets_exist = true
 		else:
 			ResourceGenerator.updating = true
 			OS.move_to_trash(ROM_ASSETS_PATH)
@@ -307,20 +307,20 @@ func _process(delta: float) -> void:
 		update_theme()
 		TranslationServer.reload_pseudolocalization()
 		log_comment("Reloaded resource packs!")
-	
+
 	## Imagine being such a shit game engine, that you somehow BROKE ALT-F4, SERIOUSLY.
 	if Input.is_key_pressed(KEY_ALT) and Input.is_key_pressed(KEY_4):
 		get_tree().quit()
-	
+
 	if multibind_action_just_pressed("toggle_fps_count"):
 		%FPSCount.visible = !%FPSCount.visible
 	if (%FPSCount.visible):
 		%FPSCount.text = str(int(Engine.get_frames_per_second())) + " FPS" + get_memory_usage()
-	
+
 	handle_p_switch(delta)
-	
+
 	handle_input()
-	
+
 	# DawnLR: Pluh! It just a quick way to get to the title screen, you can delete it if you want. 👍️👍️👍️
 	if OS.is_debug_build():
 		if Input.is_key_label_pressed(KEY_F11) and debug_mode == false:
@@ -329,7 +329,7 @@ func _process(delta: float) -> void:
 			log_comment("Debug Mode enabled! some bugs may occur!")
 		if Input.is_key_label_pressed(KEY_F10) && debug_mode && get_tree().current_scene is not TitleScreen:
 			transition_to_scene("res://Scenes/Levels/TitleScreen.tscn")
-	
+
 	# DawnLR: WE ARE ALT+ENTER TO FULLSCREEN!
 	if multibind_action_just_pressed("fullscreen_toggle"):
 		Settings.toggle_fullscreen()
@@ -338,14 +338,14 @@ func _process(delta: float) -> void:
 
 func get_memory_usage() -> String:
 	var string := ""
-	
+
 	if (!OS.is_debug_build()):
 		return string
-		
+
 	var bytes := OS.get_static_memory_peak_usage()
 	var kb := bytes / 1024.0
 	var mb := kb / 1024.0
-	
+
 	string += "\n"
 	if (mb >= 1.0):
 		string += "%s MB" % str(snappedf(mb, 0.01))
@@ -353,7 +353,7 @@ func get_memory_usage() -> String:
 		string += "%s KB" % str(snappedf(kb, 0.01))
 	else: # If that could ever happen
 		string += "%s BYTES" % str(snappedf(bytes, 0.01))
-		
+
 	return string + " - MEM USED"
 
 func take_screenshot() -> void:
@@ -434,7 +434,7 @@ func tally_time() -> void:
 	time_tween = create_tween()
 	var duration = float(time) / 120
 	duration = min(duration, 5)
-	
+
 	score_tween.tween_property(self, "score", target_score, duration)
 	time_tween.tween_property(self, "time", 0, duration)
 	await score_tween.finished
@@ -590,30 +590,30 @@ var error_log_cooldown := false
 func log_error(msg := "", can_spam := true, timer := 10) -> void:
 	msg = tr(msg)
 	push_error(msg)
-	
+
 	if error_log_cooldown and not can_spam:
 		return
 	var error_message = %ErrorMessage.duplicate()
 	error_message.text = "Error - " + msg
-	
+
 	create_log(error_message, timer, can_spam)
 
 func log_warning(msg := "", timer := 10) -> void:
 	msg = tr(msg)
 	push_warning(msg)
-	
+
 	var error_message: Label = %WarningMessage.duplicate()
 	error_message.text = "Warning - " + str(msg)
-	
+
 	create_log(error_message, timer)
 
 func log_comment(msg := "", timer := 2) -> void:
 	msg = tr(msg)
 	print(msg)
-	
+
 	var error_message = %CommentMessage.duplicate()
 	error_message.text = str(msg)
-	
+
 	create_log(error_message, timer)
 
 func do_cooldown() -> void:
@@ -673,7 +673,7 @@ func get_snapshot_num_int(ver_num := "26w00a") -> int:
 	var year = ver_num.substr(0, 2)
 	var week = ver_num.substr(3, 2)
 	var num = ver_num[5]
-	
+
 	return (int(year) * int(week)) + int(num.unicode_at(0))
 
 func get_rc_num_int(rc_num := "rc1") -> int:
