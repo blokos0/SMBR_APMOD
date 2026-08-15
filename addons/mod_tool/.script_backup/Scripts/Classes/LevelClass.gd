@@ -82,7 +82,7 @@ static var can_set_time := true
 
 @export_storage var enforce_resolution := Vector2.ZERO
 
-func vanilla_3354384258__enter_tree() -> void:
+func _enter_tree() -> void:
 	Global.level_metadata.clear()
 	Level.extra_music = null
 	Global.current_level = self
@@ -122,31 +122,31 @@ func vanilla_3354384258__enter_tree() -> void:
 	tree_exiting.connect(reset_resolution)
 	tree_exiting.connect(func(): OnOffSwitcher.active = false)
 
-func vanilla_3354384258_inf_time_check() -> void:
+func inf_time_check() -> void:
 	Global.inf_time = false
 	if time_limit >= 999:
 		Global.can_time_tick = false
 		Global.inf_time = true
 
-func vanilla_3354384258_apply_resolution_enforcement() -> void:
+func apply_resolution_enforcement() -> void:
 	if enforce_resolution != Vector2.ZERO:
 		get_tree().root.content_scale_size = enforce_resolution
 		get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	else:
 		reset_resolution()
 
-func vanilla_3354384258_reset_resolution() -> void:
+func reset_resolution() -> void:
 	var idx = Settings.file.video.size
 	var res = Global.RESOLUTIONS[idx]
 	get_tree().root.content_scale_size = res
 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND if idx == Global.RESOLUTIONS.size() - 1 else Window.CONTENT_SCALE_ASPECT_KEEP
 
 
-func vanilla_3354384258_spawn_in_extra_players() -> void:
+func spawn_in_extra_players() -> void:
 	# Fuck you lmao, no multiplayer
 	return
 
-func vanilla_3354384258_update_theme() -> void:
+func update_theme() -> void:
 	Global.update_theme()
 	if auto_set_theme:
 		if Global.CAMPAIGNS.has(Global.current_campaign) == false and first_load:
@@ -171,24 +171,24 @@ func vanilla_3354384258_update_theme() -> void:
 	if get_node_or_null("LevelBG") != null:
 		$LevelBG.update_visuals()
 
-func vanilla_3354384258_update_next_level_info() -> void:
+func update_next_level_info() -> void:
 	Global.custom_level_idx += 1
 	var level_limit = 4
 	if Global.in_custom_campaign():
 		LevelEditor.sub_areas = [null, null, null, null, null]
 		level_limit = Global.custom_campaign_jsons[Global.current_custom_campaign].levels_per_world[Global.world_num - 1]
 	next_level = wrap(level_id + 1, 1, level_limit + 1)
-	next_world = world_id if level_id != level_limit else world_id + 1
+	next_world = world_id if level_id != level_limit else world_id + 1 
 	next_level_file_path = get_scene_string(next_world, next_level)
 	LevelTransition.level_to_transition_to = next_level_file_path
 
-static func vanilla_3354384258_get_scene_string(world_num := 0, level_num := 0) -> String:
+static func get_scene_string(world_num := 0, level_num := 0) -> String:
 	return "res://Scenes/Levels/" + Global.current_campaign + "/World" + str(world_num) + "/" + str(world_num) + "-" + str(level_num) + ".tscn"
 
-static func vanilla_3354384258_get_world_count() -> int:
+static func get_world_count() -> int:
 	return WORLD_COUNTS[Global.current_campaign]
 
-func vanilla_3354384258_transition_to_next_level() -> void:
+func transition_to_next_level() -> void:
 	if Global.current_game_mode == Global.GameMode.CHALLENGE:
 		Global.transition_to_scene("res://Scenes/Levels/ChallengeModeResults.tscn")
 		return
@@ -212,7 +212,7 @@ func vanilla_3354384258_transition_to_next_level() -> void:
 	Global.transition_to_scene("res://Scenes/Levels/LevelTransition.tscn")
 	Checkpoint.passed_checkpoints.clear()
 
-func vanilla_3354384258_reload_level() -> void:
+func reload_level() -> void:
 	LevelTransition.level_to_transition_to = Level.start_level_path
 	if Global.current_game_mode == Global.GameMode.CUSTOM_LEVEL:
 		LevelTransition.level_to_transition_to = "res://Scenes/Levels/LevelEditor.tscn"
@@ -221,83 +221,3 @@ func vanilla_3354384258_reload_level() -> void:
 		Global.transition_to_scene(LevelTransition.level_to_transition_to)
 	else:
 		Global.transition_to_scene("res://Scenes/Levels/LevelTransition.tscn")
-
-
-# ModLoader Hooks - The following code has been automatically added by the Godot Mod Loader.
-
-
-func _enter_tree():
-	if _ModLoaderHooks.any_mod_hooked:
-		await _ModLoaderHooks.call_hooks_async(vanilla_3354384258__enter_tree, [], 1947148750)
-	else:
-		await vanilla_3354384258__enter_tree()
-
-
-func inf_time_check():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_inf_time_check, [], 1134037866)
-	else:
-		vanilla_3354384258_inf_time_check()
-
-
-func apply_resolution_enforcement():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_apply_resolution_enforcement, [], 2207798032)
-	else:
-		vanilla_3354384258_apply_resolution_enforcement()
-
-
-func reset_resolution():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_reset_resolution, [], 311815224)
-	else:
-		vanilla_3354384258_reset_resolution()
-
-
-func spawn_in_extra_players():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_spawn_in_extra_players, [], 1799666819)
-	else:
-		vanilla_3354384258_spawn_in_extra_players()
-
-
-func update_theme():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_update_theme, [], 122947159)
-	else:
-		vanilla_3354384258_update_theme()
-
-
-func update_next_level_info():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_update_next_level_info, [], 1169193637)
-	else:
-		vanilla_3354384258_update_next_level_info()
-
-
-static func get_scene_string(world_num: =0, level_num: =0) -> String:
-	if _ModLoaderHooks.any_mod_hooked:
-		return _ModLoaderHooks.call_hooks(vanilla_3354384258_get_scene_string, [world_num, level_num], 145545413)
-	else:
-		return vanilla_3354384258_get_scene_string(world_num, level_num)
-
-
-static func get_world_count() -> int:
-	if _ModLoaderHooks.any_mod_hooked:
-		return _ModLoaderHooks.call_hooks(vanilla_3354384258_get_world_count, [], 2378532145)
-	else:
-		return vanilla_3354384258_get_world_count()
-
-
-func transition_to_next_level():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_transition_to_next_level, [], 4194271396)
-	else:
-		vanilla_3354384258_transition_to_next_level()
-
-
-func reload_level():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_3354384258_reload_level, [], 1647423536)
-	else:
-		vanilla_3354384258_reload_level()
