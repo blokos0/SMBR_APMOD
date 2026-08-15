@@ -1,6 +1,7 @@
 extends "res://Scripts/Parts/GameOver.gd"
 func reset_values() -> void:
 	super()
+	print("YOU HAVE GAMEOVER")
 	match Settings.file.difficulty.game_over_behaviour:
 		0:
 			Global.level_num = $"/root/AP".slot_data["levelorder"][str(Global.world_num)][0]

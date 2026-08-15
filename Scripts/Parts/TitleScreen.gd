@@ -284,7 +284,7 @@ func on_story_options_closed() -> void:
 func go_to_credits() -> void:
 	CreditsLevel.go_to_title_screen = true
 	Global.transition_to_scene("res://Scenes/Levels/Credits.tscn")
- 
+
 func check_for_unlocked_achievements() -> void:
 	var new_achievements := []
 	var idx := 0

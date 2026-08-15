@@ -32,12 +32,12 @@ func _input(event: InputEvent) -> void:
 				$BG/Border/Levels/VBoxContainer/AutosavesList/OpenSettings/SelectableLabel.grab_focus()
 			if $AutosaveSettings.visible:
 				$AutosaveSettings/Panel/ScrollContainer/Options/Enable.grab_focus()
-			
+
 func _ready() -> void:
 	has_entered = true
 	ResourceSetter.cache.clear()
 	ResourceSetterNew.clear_cache()
-	
+
 	AudioManager.stop_all_music()
 	Global.get_node("GameHUD").hide()
 	Global.clear_saved_values()
@@ -47,12 +47,12 @@ func _ready() -> void:
 	Global.world_num = 1
 	Global.level_num = 1
 	Global.second_quest = false
-	
+
 	LevelEditor.sub_areas = [null, null, null, null, null]
 	LevelEditor.sub_level_id = 0
 	LevelEditor.selected_tile_index = 0
 	LevelEditor.last_camera_position = Vector2(-128, -88)
-	
+
 	Checkpoint.sublevel_id = 0
 	%LevelList.open(true)
 	await get_tree().process_frame
@@ -60,13 +60,13 @@ func _ready() -> void:
 		%LSSBrowser.setup_page_numbers()
 		%LSSBrowser.page_number = saved_search_values[0]
 		%Page.selected_index = saved_search_values[0] - 1
-		
+
 		%LSSBrowser.filter = saved_search_values[1]
 		%Sort.selected_index = saved_search_values[1]
-		
+
 		%LSSBrowser.order = saved_search_values[2]
 		%Order.selected_index = %LSSBrowser.order
-		
+
 		%LSSLevelInfo.open(last_played_container)
 		await get_tree().process_frame
 		%LSSBrowser.grab_levels()
@@ -95,7 +95,7 @@ func new_level() -> void:
 	LevelEditor.level_desc = ""
 	LevelEditor.difficulty = 0
 	LevelEditor.level_file = LevelEditor.BLANK_FILE.duplicate(true)
-	
+
 	Global.current_game_mode = Global.GameMode.LEVEL_EDITOR
 	Global.transition_to_scene("res://Scenes/Levels/LevelEditor.tscn")
 
@@ -107,10 +107,10 @@ func edit_level() -> void:
 	clear_saved_stuff()
 	LevelEditor.load_play = false
 	LevelEditor.current_layer = 0
-	
+
 	Global.current_game_mode = Global.GameMode.LEVEL_EDITOR
 	Global.transition_to_scene("res://Scenes/Levels/LevelEditor.tscn")
-	
+
 	NewLevelBuilder.load_level(LevelEditor.level_file)
 
 func play_level() -> void:
