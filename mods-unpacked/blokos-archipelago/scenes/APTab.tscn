@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ccrfsc601nkrb"]
+
+[ext_resource type="PackedScene" uid="uid://cg0mn2wb65xk8" path="res://mods-unpacked/blokos-archipelago/scenes/SelectableLineEdit.tscn" id="2_n68w3"]
+[ext_resource type="PackedScene" uid="uid://bhaekyi2jfwok" path="res://Scenes/Parts/SelectableOptionButton.tscn" id="3_rav3p"]
+
+[sub_resource type="GDScript" id="GDScript_n68w3"]
+script/source = "extends \"res://Scripts/UI/SettingsCategory.gd\"
+func on_button_pressed() -> void:
+	$/root/AP.connectserver($ServerAddress/AutoScrollContainer/LineEdit.text, $Password/AutoScrollContainer/LineEdit.text, $SlotName/AutoScrollContainer/LineEdit.text)
+"
+
+[node name="APTab" type="VBoxContainer" unique_id=80664054 node_paths=PackedStringArray("options")]
+offset_right = 256.0
+offset_bottom = 28.0
+script = SubResource("GDScript_n68w3")
+category_name = "Archipelago"
+options = [NodePath("ServerAddress"), NodePath("Password"), NodePath("SlotName"), NodePath("Connect")]
+
+[node name="Control" type="Control" parent="." unique_id=1476507790]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ServerAddress" parent="." unique_id=1944308982 instance=ExtResource("2_n68w3")]
+layout_mode = 2
+placeholder = "SERVER ADDRESS"
+
+[node name="Password" parent="." unique_id=1252003591 instance=ExtResource("2_n68w3")]
+layout_mode = 2
+placeholder = "PASSWORD"
+setting = "password"
+
+[node name="SlotName" parent="." unique_id=587630797 instance=ExtResource("2_n68w3")]
+layout_mode = 2
+placeholder = "SLOT NAME"
+setting = "slot_name"
+
+[node name="Connect" parent="." unique_id=1377700076 instance=ExtResource("3_rav3p")]
+layout_mode = 2
+title = "CONNECT"
+press_sfx = ""
+
+[connection signal="button_pressed" from="Connect" to="." method="on_button_pressed"]

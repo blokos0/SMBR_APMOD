@@ -5,7 +5,7 @@ Exports/
 
 # GML specific ignores
 /mods
-/mods-unpacked
+# /mods-unpacked
 /custom_objects
 /custom_objects-unpacked
 

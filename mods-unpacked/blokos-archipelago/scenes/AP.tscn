@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://pbfll3ybbpem"]
+
+[ext_resource type="Script" uid="uid://c21d2bxctjxbo" path="res://mods-unpacked/blokos-archipelago/scenes/AP.gd" id="1_j06n8"]
+
+[node name="AP" type="Node" unique_id=1483924770]
+process_mode = 3
+script = ExtResource("1_j06n8")
