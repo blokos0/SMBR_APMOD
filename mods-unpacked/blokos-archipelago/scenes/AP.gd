@@ -18,6 +18,7 @@ var item_id_to_name: Dictionary
 var playing: bool
 var my_game: String = "Super Mario Bros. Remastered"
 var inventory: Array
+var unlocked_worlds: Dictionary = {"SMB": []}
 func _ready() -> void:
 	socket.inbound_buffer_size = 65536 * 128
 	await get_tree().create_timer(2, false).timeout # debug
@@ -126,9 +127,10 @@ func parse_message(json: Dictionary) -> void:
 		"ReceivedItems":
 			for i: Dictionary in json["items"]:
 				var item_name: String = item_id_to_name[i["item"]]
-				print(item_name)
+				inventory.append(item_name)
 				if item_name.begins_with("World"):
 					var world: int = int(item_name.get_slice(" ", 1))
+					unlocked_worlds["SMB"].append(world)
 					var ass: String = SaveManager.visited_levels
 					ass = ass.erase((world - 1) * 4, 4)
 					ass = ass.insert((world - 1) * 4, "1111")

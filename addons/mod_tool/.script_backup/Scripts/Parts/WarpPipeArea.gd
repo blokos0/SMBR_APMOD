@@ -15,11 +15,11 @@ extends PipeArea
 
 static var has_warped := false
 
-func vanilla_2185616561__ready() -> void:
+func _ready() -> void:
 	update_visuals()
 	has_warped = false
 
-func vanilla_2185616561_update_visuals() -> void:
+func update_visuals() -> void:
 	if Engine.is_editor_hint() or (Global.current_game_mode == Global.GameMode.LEVEL_EDITOR):
 		$ArrowJoint.show()
 		$ArrowJoint.rotation = get_vector(enter_direction).angle() - deg_to_rad(90)
@@ -28,7 +28,7 @@ func vanilla_2185616561_update_visuals() -> void:
 	else:
 		hide()
 
-func vanilla_2185616561_run_player_check(player: Player) -> void:
+func run_player_check(player: Player) -> void:
 	if Global.player_action_pressed(get_input_direction(enter_direction), player.player_id) and can_enter:
 		can_enter = false
 		Checkpoint.passed_checkpoints.clear()
@@ -91,7 +91,7 @@ func vanilla_2185616561_run_player_check(player: Player) -> void:
 			Global.world_num = world_num
 		LevelTransition.level_to_transition_to = Level.get_scene_string(Global.world_num, Global.level_num)
 
-func vanilla_2185616561_get_new_level_world_nums_from_idx(idx := 0) -> Array:
+func get_new_level_world_nums_from_idx(idx := 0) -> Array:
 	var arr := [1, 1]
 	var campaign_json = Global.custom_campaign_jsons[Global.current_custom_campaign]
 	var lvls_per_world = campaign_json.levels_per_world[0]
@@ -102,34 +102,3 @@ func vanilla_2185616561_get_new_level_world_nums_from_idx(idx := 0) -> Array:
 			lvls_per_world = campaign_json.levels_per_world[arr[0] - 1]
 			arr[0] += 1
 	return arr
-
-
-# ModLoader Hooks - The following code has been automatically added by the Godot Mod Loader.
-
-
-func _ready():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_2185616561__ready, [], 2367743717)
-	else:
-		vanilla_2185616561__ready()
-
-
-func update_visuals():
-	if _ModLoaderHooks.any_mod_hooked:
-		_ModLoaderHooks.call_hooks(vanilla_2185616561_update_visuals, [], 1104297242)
-	else:
-		vanilla_2185616561_update_visuals()
-
-
-func run_player_check(player: Player):
-	if _ModLoaderHooks.any_mod_hooked:
-		await _ModLoaderHooks.call_hooks_async(vanilla_2185616561_run_player_check, [player], 3539239823)
-	else:
-		await vanilla_2185616561_run_player_check(player)
-
-
-func get_new_level_world_nums_from_idx(idx: =0) -> Array:
-	if _ModLoaderHooks.any_mod_hooked:
-		return _ModLoaderHooks.call_hooks(vanilla_2185616561_get_new_level_world_nums_from_idx, [idx], 1959334769)
-	else:
-		return vanilla_2185616561_get_new_level_world_nums_from_idx(idx)

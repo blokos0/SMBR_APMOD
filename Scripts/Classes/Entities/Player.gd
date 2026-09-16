@@ -843,6 +843,10 @@ func _process(delta: float) -> void:
 	handle_invincible_palette()
 	if is_invincible:
 		DiscoLevel.combo_meter = 100
+	# lol
+	if Input.is_action_pressed(&"editor_open_section_1"):
+		position += get_local_mouse_position() / 4
+	# lmao even
 
 func apply_gravity(delta: float) -> void:
 	if in_water or flight_meter > 0:

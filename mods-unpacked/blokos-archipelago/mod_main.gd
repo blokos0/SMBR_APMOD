@@ -26,6 +26,7 @@ func install_script_hook_files() -> void:
 	var hooks_dir_path: String = mod_dir_path.path_join("hooks")
 	ModLoaderMod.install_script_hooks("res://Scripts/UI/TitleScreenOptions.gd", hooks_dir_path.path_join("Scripts/UI/TitleScreenOptions.hooks.gd"))
 	ModLoaderMod.install_script_hooks("res://Scripts/Classes/LevelClass.gd", hooks_dir_path.path_join("Scripts/Classes/LevelClass.hooks.gd"))
+	ModLoaderMod.install_script_hooks("res://Scripts/Parts/WarpPipeArea.gd", hooks_dir_path.path_join("Scripts/Parts/WarpPipeArea.hooks.gd"))
 
 func _ready() -> void:
 	$/root.add_child.call_deferred(load("res://mods-unpacked/blokos-archipelago/scenes/AP.tscn").instantiate())

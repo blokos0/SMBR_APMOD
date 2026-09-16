@@ -7,3 +7,5 @@ func load_save(_campaign := "SMB1") -> Dictionary:
 	return {}
 func write_achievements() -> void:
 	return
+func load_achievements() -> void:
+	return
