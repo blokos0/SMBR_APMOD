@@ -96,6 +96,8 @@ func get_resource(json_file: JSON) -> Resource:
 		return
 	if cache.has(json_file.resource_path) and use_cache and force_properties.is_empty():
 		var cached_resource = cache[json_file.resource_path]
+		if cached_resource == null:
+			return null
 		
 		if cached_resource.has_meta("loop_offsets") and node_to_affect is AnimatedSprite2D:
 			var loop_offsets = cached_resource.get_meta("loop_offsets")
@@ -199,7 +201,7 @@ func get_resource(json_file: JSON) -> Resource:
 				else:
 					rect_error_message.call()
 			
-			if animation_json != {}:
+			if animation_json != {} and resource != null:
 				resource = create_sprite_frames_from_image(resource, animation_json, resource_path)
 			else:
 				var sprite_frames = SpriteFrames.new()
@@ -306,16 +308,24 @@ func get_variation_json(json := {}) -> Dictionary:
 		get_config_file(current_resource_pack)
 		if config_to_use != {}:
 			var option_name = i.get_slice(":", 1)
+			var got_config := false
+			if config_to_use.options.has(option_name) == false:
+				for x in Settings.file.visuals.resource_packs:
+					get_config_file(x)
+					if config_to_use.options.has(option_name):
+						break
+					
 			if config_to_use.options.has(option_name):
 				variation_needed.append(option_name)
 				used_default = false
 				
 				var config_json = json[i][config_to_use.options[option_name]]
 				if config_json.has("link"):
-					json = get_variation_json(json[config_json.get("link")])
+					json = get_variation_json(json[i][config_json.get("link")])
 				else:
 					json = get_variation_json(config_json)
 				break
+				
 	
 	for i in json.keys().filter(func(key): return key.contains("flag:")):
 		if active_flags.has(i):
@@ -583,6 +593,7 @@ static func clear_cache() -> void:
 	for i in cache.keys():
 		if cache[i] == null:
 			cache.erase(i)
+	surpress_warnings = null
 	cache.clear()
 	material_cache.clear()
 	active_flags.clear()
@@ -616,13 +627,13 @@ func log_error(msg := "", can_spam := true, timer := 10) -> void:
 
 func log_warning(msg := "", timer := 10) -> void:
 	if surpress_warnings == null:
-		surpress_warnings = is_warnings_enabled()
+		surpress_warnings = !is_warnings_enabled()
 	if surpress_warnings == false:
 		Global.log_warning(msg, timer)
 
 func is_warnings_enabled() -> bool:
 	var pack_json = JSONParser.parse_to_dict(Global.get_config_path().path_join("/resource_packs/" + current_resource_pack + "/pack_info.json"))
-	if pack_json.get("enable_warnings", false):
+	if pack_json.get("show_warnings", false):
 		return true
 	return false
 

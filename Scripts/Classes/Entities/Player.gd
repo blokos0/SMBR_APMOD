@@ -19,7 +19,7 @@ extends CharacterBody2D
 		"ROUNDED_FLOOR_COLLISION": false,
 		"JUMP_WALK_THRESHOLD": 60.0,       # The minimum velocity the player must move at to perform a walking jump.
 		"JUMP_RUN_THRESHOLD": 135.0,       # The minimum velocity the player must move at to perform a running jump.
-
+		
 		"JUMP_GRAVITY_IDLE": 11.0,         # The player's gravity while jumping from an idle state, measured in px/frame.
 		"JUMP_GRAVITY_WALK": 11.0,         # The player's gravity while jumping from a walking state, measured in px/frame.
 		"JUMP_GRAVITY_RUN": 11.0,          # The player's gravity while jumping from a running state, measured in px/frame.
@@ -33,17 +33,17 @@ extends CharacterBody2D
 		"CLASSIC_BOUNCE_BEHAVIOR": false,  # Determines if the player can only get extra height from a bounce with upward velocity, as opposed to holding jump.
 		"BOUNCE_SPEED": 200.0,             # The strength at which the player bounces off enemies without any extra input, measured in px/sec.
 		"BOUNCE_JUMP_SPEED": 300.0,        # The strength at which the player bounces off enemies while holding jump, measured in px/sec.
-
+		
 		"FALL_GRAVITY_PREDETERMINED": false,         # Determines if the player's gravity is determined by their last X velocity from leaving the ground rather than their current X velocity.
 		"FALL_GRAVITY_IDLE": 25.0,         # The player's gravity while falling from an idle state, measured in px/frame.
 		"FALL_GRAVITY_WALK": 25.0,         # The player's gravity while falling from a walking state, measured in px/frame.
 		"FALL_GRAVITY_RUN": 25.0,          # The player's gravity while falling from a running state, measured in px/frame.
 		"MAX_FALL_SPEED": 280.0,           # The player's maximum fall speed, measured in px/sec.
 		"CEILING_BUMP_SPEED": 45.0,        # The speed at which the player falls after hitting a ceiling, measured in px/sec.
-
+		
 		"CLAMP_GROUND_SPEED": false,       # Determines if the player's speed will get clamped while moving on the ground, emulating snappier movement.
 		"MINIMUM_SPEED": 0.0,              # The player's minimum speed while actively moving.
-
+		
 		"WALK_SPEED": 96.0,                # The player's speed while walking, measured in px/sec.
 		"GROUND_WALK_ACCEL": 4.0,          # The player's acceleration while walking, measured in px/frame.
 		"WALK_SKID": 8.0,                  # The player's turning deceleration while running, measured in px/frame.
@@ -51,21 +51,21 @@ extends CharacterBody2D
 		"RUN_STOP_BUFFER": 0.0,            # Determines the amount of time in seconds before running will stop once its initiated.
 		"RUN_SPEED": 160.0,                # The player's speed while running, measured in px/sec.
 		"GROUND_RUN_ACCEL": 1.25,          # The player's acceleration while running, measured in px/frame.
-		"RUN_SKID": 8.0,
+		"RUN_SKID": 8.0,     
 		"ICE_ACCEL_MOD": 0.25,
 		"ICE_DECEL_MOD": 0.25,
 		"ICE_SKID_MOD": 0.25,              # The player's turning deceleration while running, measured in px/frame.
-
+		
 		"CLASSIC_SKID_CONDITIONS": false,  # Determines if the player's speed must be over SKID_THRESHOLD to begin skidding.
 		"CAN_INSTANT_STOP_SKID": false,    # Determines if the player will instantly stop upon reaching the skid threshold.
 		"SKID_THRESHOLD": 100.0,           # The horizontal speed required, to be able to start skidding.
 		"SKID_STOP_THRESHOLD": 10.0,       # The maximum velocity required before the player will stop skidding.
-
+		
 		"GROUND_WALK_DECEL": 3.0,          # The player's grounded deceleration while no buttons are pressed, measured in px/frame.
 		"GROUND_RUN_DECEL": 3.0,           # The player's grounded deceleration while no buttons are pressed from running speed, measured in px/frame.
 		"DECEL_THRESHOLD": 0,
 		"AIR_DECEL": 0.0,                  # The player's airborne deceleration while no buttons are pressed, measured in px/frame.
-
+		
 		"AIR_WALK_ACCEL": 3.0,             # The player's usual acceleration while in midair, measured in px/frame.
 		"AIR_WALK_SKID_ACCEL": 4.5,        # The player's usual skid acceleration while in midair, measured in px/frame.
 		"AIR_RUN_ACCEL": 3.0,              # The player's running acceleration while in midair, measured in px/frame.
@@ -79,14 +79,14 @@ extends CharacterBody2D
 		"CAN_AIR_RUN_WITHOUT_RUN_BUTTON": false,     # Determines if the player must be holding the run button to allow for running speed in the air.
 		"CAN_AIR_SKID_ALWAYS": true,       # Determines if the player uses 'skid' params instead of 'accel' params if jump started below a certain speed.
 		"CAN_AIR_RUN_EARLY": false,        # Determines a multiplier to the player's acceleration when moving backwards in the air.
-
+		
 		"CLIMB_OFFSET": 5.0,               # The X position offset applied to the player when climbing.
 		"CLIMB_UP_SPEED": 50.0,            # The player's speed while climbing upwards, measured in px/sec.
 		"CLIMB_DOWN_SPEED": 120.0,         # The player's speed while climbing downwards, measured in px/sec.
 
 		"TRAMPOLINE_SPEED": 500.0,         # The strength of a jump on a trampoline, measured in px/sec.
 		"SUPER_TRAMPOLINE_SPEED": 1200.0,  # The strength of a jump on a super trampoline, measured in px/sec.
-
+		
 		"SWIM_SPEED": 95.0,                # The player's horizontal speed while swimming, measured in px/sec.
 		"SWIM_GROUND_SPEED": 45.0,         # The player's horizontal speed while grounded underwater, measured in px/sec.
 		"SWIM_DECEL": 3.0,                 # The player's deceleration in water while no buttons are pressed, measured in px/frame.
@@ -126,9 +126,9 @@ extends CharacterBody2D
 		"JUMP_INCR": 0.0,                  # How much the player's X velocity affects their jump speed.
 		"JUMP_CANCEL_DIVIDE": 1.0,         # When the player cancels their jump, their Y velocity gets divided by this value.
 		"JUMP_HOLD_SPEED_THRESHOLD": 0.0,  # When the player's Y velocity goes past this value while jumping, their gravity switches to FALL_GRAVITY.
-
+		
 		"CLASSIC_BOUNCE_BEHAVIOR": true,   # Determines if the player can only get extra height from a bounce with upward velocity, as opposed to holding jump.
-
+		
 		"BOUNCE_SPEED": {
 			"SMB1": {"value": 248.0},
 			"SMBLL": {"value": 370.0},
@@ -139,36 +139,36 @@ extends CharacterBody2D
 			"SMBLL": {"value": 370.0},
 			"SMBANN": {"link": "SMBLL"}
 		},                                 # The strength at which the player bounces off enemies without any extra input, measured in px/sec.   # The strength at which the player bounces off enemies while holding jump, measured in px/sec.
-
+		
 		"FALL_GRAVITY_PREDETERMINED": true,          # Determines if the player's gravity is determined by their last X velocity from leaving the ground rather than their current X velocity.
 		"FALL_GRAVITY_IDLE": 26.25,        # The player's gravity while falling from an idle state, measured in px/frame.
 		"FALL_GRAVITY_WALK": 22.5,         # The player's gravity while falling from a walking state, measured in px/frame.
 		"FALL_GRAVITY_RUN": 33.75,         # The player's gravity while falling from a running state, measured in px/frame.
 		"MAX_FALL_SPEED": 255.0,           # The player's maximum fall speed, measured in px/sec.
 		"CEILING_BUMP_SPEED": 45.0,        # The speed at which the player falls after hitting a ceiling, measured in px/sec.
-
+		
 		"CLAMP_GROUND_SPEED": true,        # Determines if the player's speed will get clamped while moving on the ground, emulating snappier movement.
 		"MINIMUM_SPEED": 4.46,             # The player's minimum speed while actively moving.
-
+		
 		"WALK_SPEED": 90.0,                # The player's speed while walking, measured in px/sec.
 		"GROUND_WALK_ACCEL": 2.23,         # The player's acceleration while walking, measured in px/frame.
 		"WALK_SKID": 6.1,                  # The player's turning deceleration while running, measured in px/frame.
-
+		
 		"CAN_RUN_ACCEL_EARLY": true,       # Determines if the player can hold run before reaching walk speed to begin running.
 		"RUN_STOP_BUFFER": 0.167,          # Determines the amount of time in seconds before running will stop once its initiated.
 		"RUN_SPEED": 150.0,                # The player's speed while running, measured in px/sec.
 		"GROUND_RUN_ACCEL": 3.34,          # The player's acceleration while running, measured in px/frame.
 		"RUN_SKID": 6.1,                   # The player's turning deceleration while running, measured in px/frame.
-
+		
 		"CLASSIC_SKID_CONDITIONS": true,   # Determines if the player's speed must be over SKID_THRESHOLD to begin skidding.
 		"CAN_INSTANT_STOP_SKID": true,     # Determines if the player will instantly stop upon reaching the skid threshold.
 		"SKID_THRESHOLD": 100.0,           # The horizontal speed required, to be able to start skidding.
 		"SKID_STOP_THRESHOLD": 33.75,      # The maximum velocity required before the player will stop skidding.
-
-		"GROUND_WALK_DECEL": 3.05,
+		
+		"GROUND_WALK_DECEL": 3.05,   
 		"GROUND_RUN_DECEL": 3.05,
 		"DECEL_THRESHOLD": 33.75,           # The player's grounded deceleration while no buttons are pressed, measured in px/frame.
-
+		
 		"AIR_DECEL": 0.0,                  # The player's airborne deceleration while no buttons are pressed, measured in px/frame.
 		"AIR_WALK_ACCEL": 2.23,            # The player's usual acceleration while in midair, measured in px/frame.
 		"AIR_WALK_SKID_ACCEL": 3.04,       # The player's usual skid acceleration while in midair, measured in px/frame.
@@ -183,14 +183,14 @@ extends CharacterBody2D
 		"CAN_AIR_RUN_WITHOUT_RUN_BUTTON": true,      # Determines if the player must be holding the run button to allow for running speed in the air.
 		"CAN_AIR_SKID_ALWAYS": false,      # Determines if the player uses 'skid' params instead of 'accel' params if jump started below a certain speed.
 		"CAN_AIR_RUN_EARLY": false,        # Determines a multiplier to the player's acceleration when moving backwards in the air.
-
+		
 		"CLIMB_OFFSET": 5.0,               # The X position offset applied to the player when climbing.
 		"CLIMB_UP_SPEED": 50.0,            # The player's speed while climbing upwards, measured in px/sec.
 		"CLIMB_DOWN_SPEED": 120.0,         # The player's speed while climbing downwards, measured in px/sec.
 
 		"TRAMPOLINE_SPEED": 500.0,         # The strength of a jump on a trampoline, measured in px/sec.
 		"SUPER_TRAMPOLINE_SPEED": 1200.0,  # The strength of a jump on a super trampoline, measured in px/sec.
-
+		
 		"SWIM_SPEED": 95.0,                # The player's horizontal speed while swimming, measured in px/sec.
 		"SWIM_GROUND_SPEED": 45.0,         # The player's horizontal speed while grounded underwater, measured in px/sec.
 		"SWIM_DECEL": 0.0,                 # The player's deceleration in water while no buttons are pressed, measured in px/frame.
@@ -201,7 +201,7 @@ extends CharacterBody2D
 	},
 	"Small": {
 		"COLLISION_SIZE": [8, 14],        # The player's hitbox scale.
-		"CROUCH_COLLISION_SIZE": [8, 12],
+		"CROUCH_COLLISION_SIZE": [8, 12],  
 		"CROUCH_SCALE": 1.0,
 		"CAN_BREAK_BRICKS": false,
 		"CAN_BE_WALL_EJECTED": false,
@@ -217,17 +217,17 @@ extends CharacterBody2D
 		"STAR_TIME": 12.0,                 # Determines how long a Star will last for.
 		"WING_TIME": 10.0,                 # Determines how long Wings will last for.
 		"HAMMER_TIME": 10.0,               # Determines how long a Hammer will last for.
-
+		
 		"PROJ_TYPE": "",                   # Determines what projectile scene is used. Leaving this blank disables firing projectiles entirely.
-
+		
 		"PROJ_PARTICLE": "",               # Determines what particle scene is used. Leaving this blank disables particles from spawning.
 		"PROJ_PARTICLE_OFFSET": [0, 0],    # Determines the spawn location of the projectile's particle.
 		"PROJ_PARTICLE_ON_CONTACT": false, # Defines if the particle will play when making contact without being destroyed.
-
+		
 		"PROJ_EXTRA_PROJ": "",             # Determines if an extra projectile will be spawned. Leaving this blank will prevent any additional projectiles.
 		"PROJ_EXTRA_PROJ_OFFSET": [0, 0],  # Determines the spawn location of the extra projectile spawned when destroyed.
 		"PROJ_EXTRA_PROJ_ON_CONTACT": false,    # Defines if the extra projectile will spawn when the original makes contact without being destroyed.
-
+		
 		"PROJ_SFX_THROW": "fireball",      # Defines the sound effect that plays when this projectile is fired.
 		"PROJ_SFX_COLLIDE": "bump",        # Defines the sound effect that plays when this projectile collides.
 		"PROJ_SFX_HIT": "fireball_hit",    # Defines the sound effect that plays when this projectile hits an enemy.
@@ -235,12 +235,12 @@ extends CharacterBody2D
 		"MAX_PROJ_COUNT": 2,               # How many projectiles can be fired at once. -1 and below count as infinite.
 		"PROJ_COLLISION": true,            # Determines if the projectile can interact with collidable surfaces.
 		"PROJ_PIERCE_COUNT": 0,            # Determines how many additional enemies this projectile can hit before being destroyed. -1 and below count as infinite.
-		"PROJ_PIERCE_HITRATE": -1,         # Determines how much time must pass in seconds before this projectile can hit the same enemy it is on top of currently. -1 and below count as infinite.
+		"PROJ_PIERCE_HITRATE": -1,         # Determines how much time must pass in seconds before this projectile can hit the same enemy it is on top of currently. -1 and below count as infinite. 
 		"PROJ_BOUNCE_COUNT": -1,           # Determines how many additional enemies this projectile can hit before being destroyed. -1 and below count as infinite.
 		"PROJ_GROUND_BOUNCE": true,        # Determines if the projectile can bounce off the ground.
 		"PROJ_WALL_BOUNCE": false,         # Determines if the projectile can bounce off of wals.
 		"PROJ_CEIL_BOUNCE": false,         # Determines if the projectile can bounce off of ceilings.
-
+		
 		"PROJ_LIFETIME": -1.0,               # Determines how long the projectile will last for. -1 and below count as infinite.
 		"PROJ_OFFSET": [-4.0, 16.0],       # Determines the offset for where the projectile will spawn.
 		"PROJ_ANGLE" : null,               # Determines the exact angle the projectile is sent at in degrees. Leaving this blank disables angled behavior entirely.
@@ -251,7 +251,7 @@ extends CharacterBody2D
 		"PROJ_SPEED_DOWN_FORWARD": null,           # Changes the speed of the projectile if you hold DOWN and LEFT/RIGHT.
 		"PROJ_SPEED_CAP": [-220.0, 220.0], # Determines the minimum and maximum X velocity of the projectile.
 		"PROJ_SPEED_SCALING": false,       # Determines if the projectile will have its initial speed scale with the player's movement.
-
+		
 		"PROJ_GROUND_DECEL": 0.0,          # The projectile's deceleration on the ground, measured in px/frame
 		"PROJ_AIR_DECEL": 0.0,             # The projectile's (horizontal) deceleration in the air, measured in px/frame
 		"PROJ_AIR_DECEL_VERTICAL": 0.0,    # The projectile's (vertical) deceleration in the air, measured in px/frame. Useful for projectiles that have no gravity.
@@ -276,7 +276,7 @@ extends CharacterBody2D
 		"PROJ_PARTICLE": "res://Scenes/Prefabs/Particles/SmokeParticle",
 		"PROJ_SFX_THROW": "superball",
 		"PROJ_SFX_HIT": "superball_hit",
-		"PROJ_GRAVITY": 0.0,
+		"PROJ_GRAVITY": 0.0, 
 		"PROJ_LIFETIME": 10.0,
 		"PROJ_WALL_BOUNCE": true,
 		"PROJ_CEIL_BOUNCE": true,
@@ -291,18 +291,18 @@ extends CharacterBody2D
 		"FLAG_SKIP_GRAB": false,           # Determines if the player skips grabbing the flag entirely.
 		"FLAG_HANG_TIMER": 1.5,            # How long the player will stick on the flagpole.
 		"FLAG_SLIDE_SPEED": 125.0,         # How fast the player slides down the flagpole.
-
+		
 		"FLAG_INITIAL_X_VELOCITY": 0.0,    # Determines the player's initial X velocity after letting go of the flagpole.
 		"FLAG_JUMP_SPEED": 0.0,            # How high the player will initially jump after letting go of the flagpole.
 		"FLAG_JUMP_INCR": 8.0,             # How much the player's X velocity will influence the player's jump height.
-
+		
 		"FLAG_SPEED_MULT": 1.0,            # The multiplier applied onto the player's max speed when walking to the flag.
 		"FLAG_ACCEL_MULT": 1.0,            # The multiplier applied onto the player's max acceleration when walking to the flag.
 		"TOAD_SPEED_MULT": 1.0,            # The multiplier applied onto the player's max speed when walking to a Toad.
 		"TOAD_ACCEL_MULT": 1.0,            # The multiplier applied onto the player's max acceleration when walking to a Toad.
 		"PEACH_SPEED_MULT": 1.0,           # The multiplier applied onto the player's max speed when walking to Peach.
 		"PEACH_ACCEL_MULT": 1.0,           # The multiplier applied onto the player's max acceleration when walking to Peach.
-
+		
 		"DOOR_POSE_OFFSET": 0.0,           # The offset of where the player performs their PoseDoor animation, if applicable.
 		"TOAD_POSE_OFFSET": -12.0,         # The offset of where the player performs their PoseToad animation, if applicable.
 		"PEACH_POSE_OFFSET": -12.0,        # The offset of where the player performs their PosePeach animation, if applicable.
@@ -325,7 +325,7 @@ extends CharacterBody2D
 	"Default": { # Fallback parameters. Additional entries can be added through CharacterInfo.json.
 		"WING_OFFSET": [0.0, 0.0],         # The visual offset of the wings which appear with the Wing power-up.
 		"HAMMER_OFFSET": [0.0, -8.0],      # The visual offset of the hammer which appears with the Hammer power-up.
-
+		
 		"MOVE_ANIM_SPEED_DIV": 32,         # Determines the value used for division in the animation speed formula for walk/run animations. Lower is faster.
 		"CHECKPOINT_ICON_HEIGHT": -40,
 		"RAINBOW_STAR_FX_SPEED": 15.0,     # Determines the speed of the rainbow effect under the effects of a star, measured in cycles/sec
@@ -354,7 +354,7 @@ extends CharacterBody2D
 	"Big": {
 		"RAINBOW_POWERUP_FX": false,
 	}
-}
+} 
 #endregion
 @export_group("")
 
@@ -491,7 +491,7 @@ static var CHARACTER_NAMES := ["CHAR_MARIO", "CHAR_LUIGI", "CHAR_TOAD", "CHAR_TO
 
 static var CHARACTER_COLOURS := [
 	("res://Assets/Sprites/Players/Mario/CharacterColour.json"),
-	("res://Assets/Sprites/Players/Luigi/CharacterColour.json"),
+	("res://Assets/Sprites/Players/Luigi/CharacterColour.json"), 
 	("res://Assets/Sprites/Players/Toad/CharacterColour.json"),
 	("res://Assets/Sprites/Players/Toadette/CharacterColour.json")
 ]
@@ -513,11 +513,11 @@ static var ANIMATION_FALLBACKS: Dictionary = {
 	"LookUp": "Idle",
 	"Crouch": "Idle",
 	"Stunned": "Idle",
-
+	
 	# --- Cutscene States ---
 	"LevelTransition": "Idle",
 	"PosePeach": "PoseToad",
-
+	
 	"FlingJump": "Jump",
 	"FlingJumpFall": "JumpFall",
 	"FlingBump": "Bump",
@@ -538,7 +538,7 @@ static var ANIMATION_FALLBACKS: Dictionary = {
 	"PipeWalk": "Walk",
 	"FlagSlide": "Climb",
 	"FlyUp": "SwimUp",
-
+	
 	# --- Size Transformations ---
 	"Shrink": "Grow",
 	# SkyanUltra: Future power-ups will need to be added here.
@@ -708,7 +708,7 @@ func has_param(type: String, params_dict: Dictionary = {}, key: String = "") -> 
 	# engine. I can't just set params_dict to physics_dict... So I have to do this
 	# work around. I hate it. If anyone can fix it, then please. Do it.
 	if params_dict == {}: params_dict = physics_dict
-
+	
 	if power_state != null:
 		if key == "": key = power_state.state_name
 		if key in params_dict:
@@ -728,7 +728,7 @@ func apply_character_physics() -> void:
 		path = path.replace("res://Assets/Sprites/Players", Global.config_path.path_join("custom_characters/"))
 	path = ResourceSetter.get_pure_resource_path(path)
 	var json = JSONParser.parse_to_dict(path)
-
+	
 	# SkyanUltra: This section controls all CHARACTER PHYSICS values. This should be
 	# preventing physics changes to stop potential cheating in modes like You VS. Boo
 	# and Marathon mode.
@@ -862,7 +862,7 @@ func apply_gravity(delta: float) -> void:
 func camera_make_current() -> void:
 	camera.enabled = true
 	camera.make_current()
-
+	
 func can_fire_projectile():
 	return (not cooldown) and ((projectile_amount < physics_params("MAX_PROJ_COUNT", POWER_PARAMETERS) or physics_params("MAX_PROJ_COUNT", POWER_PARAMETERS) < 0))
 
@@ -890,23 +890,29 @@ func apply_character_sfx_map() -> void:
 		path = path.replace("res://Assets/Sprites/Players", Global.config_path.path_join("custom_characters/"))
 	path = ResourceSetter.get_pure_resource_path(path)
 	var json = JSONParser.parse_to_dict(path)
-
+	
 	for i in json:
-		var res_path = "res://Assets/Audio/SFX/" + json[i]
-		res_path = ResourceSetter.get_pure_resource_path(res_path)
-		if FileAccess.file_exists(res_path) == false or custom_character:
-			var directory = "res://Assets/Sprites/Players/" + character + "/" + json[i]
-			if int(Global.player_characters[player_id]) > 3:
-				directory = directory.replace("res://Assets/Sprites/Players", Global.config_path.path_join("custom_characters/"))
-			directory = ResourceSetter.get_pure_resource_path(directory)
-			if FileAccess.file_exists(directory):
-				json[i] = directory
-			else:
-				json[i] = res_path
+		if json[i] is Array:
+			var arr := []
+			for x in json[i]:
+				arr.append(get_sfx_path(x, json, custom_character))
+			json[i] = arr
 		else:
-			json[i] = res_path
-
+			json[i] = get_sfx_path(json[i], json, custom_character)
+	
 	AudioManager.load_sfx_map(json)
+
+func get_sfx_path(starting_path := "", json := {}, is_custom_character := false) -> String:
+	var res_path = "res://Assets/Audio/SFX/" + starting_path
+	res_path = ResourceSetter.get_pure_resource_path(res_path)
+	if FileAccess.file_exists(res_path) == false or is_custom_character:
+		var directory = "res://Assets/Sprites/Players/" + character + "/" + starting_path
+		if int(Global.player_characters[player_id]) > 3:
+			directory = directory.replace("res://Assets/Sprites/Players", Global.config_path.path_join("custom_characters/"))
+		directory = ResourceSetter.get_pure_resource_path(directory)
+		if FileAccess.file_exists(directory):
+			return directory
+	return res_path
 
 func refresh_hitbox() -> void:
 	for i in $Hitbox.get_overlapping_areas():
@@ -1079,7 +1085,7 @@ func handle_projectile_firing(delta: float) -> void:
 					velocity.y += recoily
 				else:
 					velocity.y = recoily
-
+				
 			if physics_params("PROJ_TYPE", POWER_PARAMETERS) != "":
 				throw_projectile()
 			if physics_params("PROJ_COOLDOWN", POWER_PARAMETERS) and (physics_params("PROJ_COOLDOWN", POWER_PARAMETERS) > 0):
@@ -1088,7 +1094,7 @@ func handle_projectile_firing(delta: float) -> void:
 				cooldown = false
 				if physics_params("PROJ_SFX_COOLDOWN_END", POWER_PARAMETERS):
 					AudioManager.play_sfx(physics_params("PROJ_SFX_COOLDOWN_END", POWER_PARAMETERS), global_position)
-
+	
 func calculate_angle_param(prefix):
 	var vert_input = sign(Input.get_axis("move_up" + "_" + str(player_id),"move_down" + "_" + str(player_id)))
 	var horiz_input = sign(Input.get_axis("move_right" + "_" + str(player_id),"move_left" + "_" + str(player_id)))
@@ -1101,23 +1107,24 @@ func calculate_angle_param(prefix):
 		word_out = word_out + "_FORWARD"
 	if physics_params(word_out + "_AIR", POWER_PARAMETERS) && !is_on_floor():
 		word_out = word_out + "_AIR"
-
+		
 	return physics_params(word_out, POWER_PARAMETERS)
 
 func throw_projectile() -> void:
 	attacked.emit()
 	projectile_type = load(physics_params("PROJ_TYPE", POWER_PARAMETERS) + ".tscn")
 	var node = projectile_type.instantiate()
+	node.set_meta("IsPlayerProjectile", "true")
 	var offset = physics_params("PROJ_OFFSET", POWER_PARAMETERS)
 	var angle = Vector2.ZERO if physics_params("PROJ_ANGLE", POWER_PARAMETERS) == null else Vector2.from_angle(deg_to_rad(physics_params("PROJ_ANGLE", POWER_PARAMETERS)))
 	var speed = physics_params("PROJ_SPEED", POWER_PARAMETERS)
-
+	
 	speed = calculate_angle_param("PROJ_SPEED")
-
+	
 	var speed_scaling = 0
 	if physics_params("PROJ_SPEED_SCALING", POWER_PARAMETERS):
 		speed_scaling = velocity.x * direction
-
+	
 	node.global_position = global_position - Vector2(offset[0] * direction, offset[1] * gravity_vector.y)
 	if "direction" in node: node.direction = direction
 	if "velocity" in node: node.velocity = Vector2((speed[0] + speed_scaling) * direction, -speed[1])
@@ -1180,7 +1187,7 @@ func handle_star(delta:float) -> void:
 	star_meter -= delta
 	if star_meter <= 0 and has_star:
 		on_star_timeout()
-
+	
 func handle_hammer(delta:float) -> void:
 	hammer_meter -= delta
 	if hammer_meter <= 0 and has_hammer:
@@ -1358,7 +1365,7 @@ func time_up() -> void:
 
 func set_power_state_frame() -> void:
 	colour_palette = ResourceSetter.get_resource(preload("uid://b0quveyqh25dn"))
-
+	
 	var cur_palette = CHARACTER_PALETTES[int(Global.player_characters[player_id])]
 	if (cur_palette != null):
 		$PlayerPalette/ResourceSetterNew.json_path = cur_palette
@@ -1423,7 +1430,7 @@ func power_up_animation(new_power_state := "") -> void:
 	sprite.process_mode = Node.PROCESS_MODE_ALWAYS
 	sprite.show()
 	get_tree().paused = true
-
+	
 	var hitbox_changed = new_state.power_tier != old_state.power_tier
 	var shrinking = hitbox_changed and (new_state.power_tier < old_state.power_tier)
 	var can_powerup_jump = Global.player_action_pressed("jump", player_id) == false
@@ -1439,19 +1446,19 @@ func power_up_animation(new_power_state := "") -> void:
 		if Settings.file.visuals.transform_style == 0:
 			sprite.speed_scale = 3
 			play_animation(anim_name)
-
+			
 			var rainbow = physics_params("RAINBOW_POWERUP_FX", COSMETIC_PARAMETERS, new_power_state) or physics_params("RAINBOW_POWERUP_FX", COSMETIC_PARAMETERS, old_state.state_name)
 			if rainbow:
 				transforming = true
 				sprite.material.set_shader_parameter("enabled", true)
-
+			
 			await get_tree().create_timer(0.4, true).timeout
 			power_state = new_state
 			sprite.sprite_frames = new_frames
 			handle_invincible_palette()
 			play_animation(anim_name, true)
 			await get_tree().create_timer(0.4, true).timeout
-
+			
 			if rainbow:
 				sprite.material.set_shader_parameter("enabled", false)
 			transforming = false

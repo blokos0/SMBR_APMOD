@@ -55,13 +55,13 @@ var ROM_POINTER_PATH = config_path.path_join("rom_pointer.smb")
 var ROM_PATH = config_path.path_join("baserom.nes")
 var ROM_ASSETS_PATH = config_path.path_join("resource_packs/BaseAssets")
 const ROM_PACK_NAME := "BaseAssets"
-const ROM_ASSETS_VERSION := 8
+const ROM_ASSETS_VERSION := 9
 
 var server_version := -1
 var current_version := -1
 var current_snapshot := ""
 var version_number := ""
-var is_snapshot := true
+var is_snapshot := false
 
 const LEVEL_THEMES := {
 	"SMB1": SMB1_LEVEL_THEMES,
@@ -107,7 +107,6 @@ var score := 0:
 				score = value
 		else:
 			score = value
-		score = clamp(score, 0, 9999990)
 var coins := 0:
 	set(value):
 		coins = value
@@ -510,6 +509,8 @@ func transition_to_scene(scene_path = "") -> void:
 		%TransitionBlock.modulate.a = 1
 		$Transition.show()
 		await get_tree().create_timer(0.1, true).timeout
+	if scene_path == null:
+		scene_path = "res://Scenes/Levels/CustomLevelBase.tscn"
 	if scene_path is String:
 		get_tree().change_scene_to_file(scene_path)
 	elif scene_path is PackedScene:
